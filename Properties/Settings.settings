@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Attribute.Interop.Yggdrasil.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="YggdrasilAuthServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://authserver.mojang.com</Value>
+    </Setting>
+    <Setting Name="AuthenticateEndpoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/authenticate</Value>
+    </Setting>
+    <Setting Name="RefreshEndpoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/refresh</Value>
+    </Setting>
+    <Setting Name="ValidateEndpoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/validate</Value>
+    </Setting>
+    <Setting Name="SignoutEndpoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/signout</Value>
+    </Setting>
+    <Setting Name="InvalidateEndpoint" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/invalidate</Value>
+    </Setting>
+    <Setting Name="YggdrasilRequestMethod" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">POST</Value>
+    </Setting>
+    <Setting Name="YggdrasilRequestContentType" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">application/json</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
