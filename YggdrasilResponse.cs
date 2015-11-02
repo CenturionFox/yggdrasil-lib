@@ -4,27 +4,37 @@ using Attribute.Interop.Yggdrasil.Components;
 
 namespace Attribute.Interop.Yggdrasil
 {
+    /// <summary>
+    /// Models a response from the Yggdrasil authentication server.
+    /// </summary>
     [DataContract]
     public class YggdrasilResponse
     {
         #region [-- PROPERTIES --]
 
         /// <summary>
-        ///     Hexadecimal access token.
+        /// Gets or sets the access token.
         /// </summary>
+        /// <value>
+        /// The hexadecimal access token.
+        /// </value>
         public string AccessToken
         {
             get { return this._accessToken; }
-            set { this._accessToken = value; }
+            internal set { this._accessToken = value; }
         }
 
+
         /// <summary>
-        ///     Only present if the agent field was recieved.
+        /// Gets the available profiles.
         /// </summary>
+        /// <value>
+        /// The available profiles.  Only present if the access token was recieved.
+        /// </value>
         public Profile[] AvailableProfiles
         {
             get { return this._availableProfiles; }
-            set { this._availableProfiles = value; }
+            internal set { this._availableProfiles = value; }
         }
 
         /// <summary>
@@ -33,7 +43,7 @@ namespace Attribute.Interop.Yggdrasil
         public string ClientToken
         {
             get { return this._clientToken; }
-            set { this._clientToken = value; }
+            internal set { this._clientToken = value; }
         }
 
         /// <summary>
@@ -42,7 +52,7 @@ namespace Attribute.Interop.Yggdrasil
         public Profile SelectedProfile
         {
             get { return this._selectedProfile; }
-            set { this._selectedProfile = value; }
+            internal set { this._selectedProfile = value; }
         }
 
         #endregion

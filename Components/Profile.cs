@@ -1,15 +1,22 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Attribute.Interop.Yggdrasil.Components
 {
-    [DataContract]
+    /// <summary>
+    ///     An yggdrasil auth component representing a requested profile.
+    /// </summary>
+    [DataContract, DebuggerDisplay("Profile[Name:{Name},IsLegacy:{IsLegacy}]")]
     public struct Profile
     {
         #region [-- PROPERTIES --]
 
         /// <summary>
-        ///     Hexadecimal profile identifier.
+        ///     Gets or sets the identifier.
         /// </summary>
+        /// <value>
+        ///     The hexadecimal identifier for the user profile.
+        /// </value>
         public string Id
         {
             get { return this._id; }
@@ -17,8 +24,11 @@ namespace Attribute.Interop.Yggdrasil.Components
         }
 
         /// <summary>
-        ///     Whether or not the account is a legacy (non-migrated) account.
+        ///     Gets or sets a value indicating whether the requested account is a legacy (non-migrated) account.
         /// </summary>
+        /// <value>
+        ///     Whether or not the account is a legacy (non-migrated) account.
+        /// </value>
         public bool IsLegacy
         {
             get { return this._isLegacy; }
@@ -26,8 +36,11 @@ namespace Attribute.Interop.Yggdrasil.Components
         }
 
         /// <summary>
-        ///     The player name.
+        ///     Gets or sets the profile's player name.
         /// </summary>
+        /// <value>
+        ///     The player name of the profile.
+        /// </value>
         public string Name
         {
             get { return this._name; }

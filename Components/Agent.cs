@@ -1,28 +1,38 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace Attribute.Interop.Yggdrasil.Components
 {
-    [DataContract]
+    /// <summary>
+    ///     The component of the Yggdrasil auth object representing the agent that constructed the request; i.e., the client.
+    /// </summary>
+    [DataContract, DebuggerDisplay("Agent[Name:{Name},Version:{Version}]")]
     public struct Agent
     {
         #region [-- PROPERTIES --]
 
         /// <summary>
-        ///     Agent version.
+        ///     Gets or sets the agent name.
         /// </summary>
-        public double AgentVersion
-        {
-            get { return this._agentVersion; }
-            set { this._agentVersion = value; }
-        }
-
-        /// <summary>
-        ///     Agent name.
-        /// </summary>
+        /// <value>
+        ///     The agent name.
+        /// </value>
         public string Name
         {
             get { return this._name; }
             set { this._name = value; }
+        }
+
+        /// <summary>
+        ///     Gets or sets the agent version.
+        /// </summary>
+        /// <value>
+        ///     The agent version.
+        /// </value>
+        public double Version
+        {
+            get { return this._version; }
+            set { this._version = value; }
         }
 
         #endregion
@@ -30,10 +40,10 @@ namespace Attribute.Interop.Yggdrasil.Components
 
         #region [-- FIELDS --]
 
-        [DataMember(Name = "version")]
-        private double _agentVersion;
         [DataMember(Name = "name")]
         private string _name;
+        [DataMember(Name = "version")]
+        private double _version;
 
         #endregion
     }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using Attribute.Common.Attributes.Enumeration;
@@ -10,22 +11,36 @@ using Attribute.Interop.Yggdrasil.Properties;
 
 namespace Attribute.Interop.Yggdrasil
 {
+    /// <summary>
+    /// Utility used to send <see cref="YggdrasilPayload"/> request objects and process the incoming <see cref="YggdrasilResponse"/>.
+    /// </summary>
     public static class YggdrasilTransactionUtility
     {
+        /// <summary>
+        /// The Yggdrasil exception data key used in any thrown WebException objects.
+        /// </summary>
         public const string YggdrasilExceptionDataKey = "YggdrasilErrorCode";
 
         #region [-- PUBLIC & PROTECTED METHODS --]
 
-        public static YggdrasilResponse SendRequest(YggdrasilPayload payload, YggdrasilEndPoint endPoint)
+        /// <summary>
+        /// Sends the <see cref="YggdrasilPayload"/> request object to the specified <paramref name="endpoint"/> on the authentication server.
+        /// </summary>
+        /// <param name="payload">The payload to send to the server.</param>
+        /// <param name="endpoint">The endpoint on the server to send the payload to.</param>
+        /// <returns>An <see cref="YggdrasilResponse"/> object containing the user's profile data, if login was successful.</returns>
+        /// <exception cref="IOException">Thrown when the request stream fails to open.</exception>
+        /// <exception cref="WebException">Thrown if the Yggdrasil server returns an error object.</exception>
+        public static YggdrasilResponse SendRequest(YggdrasilPayload payload, YggdrasilEndPoint endpoint)
         {
             var endpointName = Settings.Default[
                                                 typeof(YggdrasilEndPoint).GetMemberAttribute
-                                                    <DataValueAttribute>(endPoint.ToString()).DataValue];
+                                                    <DataValueAttribute>(endpoint.ToString()).DataValue];
             var request =
                 WebRequest.CreateHttp(
                                       Settings.Default.YggdrasilAuthServer
                                       + endpointName);
-            request.UserAgent = "Yggdrasil Authentication (Windows; U; Windows NT 5.1; en-US)";
+            request.UserAgent = $"Attribute Yggdrasil Authentication ({Environment.OSVersion.Platform}; U; {Environment.OSVersion}; {CultureInfo.CurrentCulture.Name})";
             request.Method = Settings.Default.YggdrasilRequestMethod;
             request.ContentType = Settings.Default.YggdrasilRequestContentType;
             request.Credentials = null;
@@ -39,7 +54,7 @@ namespace Attribute.Interop.Yggdrasil
             }
             else
             {
-                throw new Exception("Unable to open request stream.");
+                throw new IOException("Unable to open request stream.");
             }
 
             Stream responseStream = null;
