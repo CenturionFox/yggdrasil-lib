@@ -1,9 +1,9 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Attribute.Interop.Yggdrasil.ServerRequest
+namespace Attribute.Interop.Yggdrasil.Components
 {
     [DataContract]
-    public class Agent
+    public struct Agent
     {
         #region [-- PROPERTIES --]
 

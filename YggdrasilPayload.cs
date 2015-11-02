@@ -1,13 +1,14 @@
 ﻿using System.Runtime.Serialization;
 using Attribute.Common.Data;
+using Attribute.Interop.Yggdrasil.Components;
 
-namespace Attribute.Interop.Yggdrasil.ServerRequest
+namespace Attribute.Interop.Yggdrasil
 {
     /// <summary>
     ///     Authenticates a user using their password.
     /// </summary>
     [DataContract]
-    public class YggdrasilPayload : JsonObject
+    public class YggdrasilPayload
     {
         #region [-- PROPERTIES --]
 

@@ -1,13 +1,13 @@
 ﻿using System.Runtime.Serialization;
 using Attribute.Common.Data;
 
-namespace Attribute.Interop.Yggdrasil.ServerRequest
+namespace Attribute.Interop.Yggdrasil.Components
 {
     /// <summary>
     ///     Class representation of an Yggdrasil authentication error.
     /// </summary>
     [DataContract]
-    public class Error : JsonObject
+    public struct Error
     {
         #region [-- PROPERTIES --]
 

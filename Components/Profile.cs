@@ -1,10 +1,9 @@
 ﻿using System.Runtime.Serialization;
-using Attribute.Common.Data;
 
-namespace Attribute.Interop.Yggdrasil.ServerRequest
+namespace Attribute.Interop.Yggdrasil.Components
 {
     [DataContract]
-    public class Profile : JsonObject
+    public struct Profile
     {
         #region [-- PROPERTIES --]
 

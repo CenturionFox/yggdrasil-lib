@@ -53,11 +53,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="ServerRequest\Agent.cs" />
-    <Compile Include="ServerRequest\YggdrasilPayload.cs" />
-    <Compile Include="ServerRequest\YggdrasilResponse.cs" />
-    <Compile Include="ServerRequest\Error.cs" />
-    <Compile Include="ServerRequest\Profile.cs" />
+    <Compile Include="Components\Agent.cs" />
+    <Compile Include="YggdrasilPayload.cs" />
+    <Compile Include="YggdrasilResponse.cs" />
+    <Compile Include="Components\Error.cs" />
+    <Compile Include="Components\Profile.cs" />
     <Compile Include="YggdrasilTransactionUtility.cs" />
   </ItemGroup>
   <ItemGroup>

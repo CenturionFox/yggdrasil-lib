@@ -1,10 +1,11 @@
 ﻿using System.Runtime.Serialization;
 using Attribute.Common.Data;
+using Attribute.Interop.Yggdrasil.Components;
 
-namespace Attribute.Interop.Yggdrasil.ServerRequest
+namespace Attribute.Interop.Yggdrasil
 {
     [DataContract]
-    public class YggdrasilResponse : JsonObject
+    public class YggdrasilResponse
     {
         #region [-- PROPERTIES --]
 

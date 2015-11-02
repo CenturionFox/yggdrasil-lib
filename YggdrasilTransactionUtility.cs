@@ -4,9 +4,9 @@ using System.Net;
 using Attribute.Common.Attributes.Enumeration;
 using Attribute.Common.Data;
 using Attribute.Common.Extensions;
+using Attribute.Interop.Yggdrasil.Components;
 using Attribute.Interop.Yggdrasil.Enumeration;
 using Attribute.Interop.Yggdrasil.Properties;
-using Attribute.Interop.Yggdrasil.ServerRequest;
 
 namespace Attribute.Interop.Yggdrasil
 {
@@ -34,7 +34,7 @@ namespace Attribute.Interop.Yggdrasil
 
             if (dataRequestStream != Stream.Null)
             {
-                JsonObject.SerializeObject(payload, ref dataRequestStream);
+                JsonUtility.SerializeObject(payload, ref dataRequestStream);
                 dataRequestStream.Close();
             }
             else
@@ -64,13 +64,13 @@ namespace Attribute.Interop.Yggdrasil
             {
                 if (wex.Response != null && wex.Response.ContentType == Settings.Default.YggdrasilRequestContentType)
                 {
-                    var error = JsonObject.DeserializeObject<Error>(wex.Response.GetResponseStream());
+                    var error = JsonUtility.DeserializeObject<Error>(wex.Response.GetResponseStream());
                     wex.Data[YggdrasilExceptionDataKey] = error.ToString();
                 }
                 throw;
             }
 
-            return responseStream == null ? null : JsonObject.DeserializeObject<YggdrasilResponse>(responseStream);
+            return responseStream == null ? null : JsonUtility.DeserializeObject<YggdrasilResponse>(responseStream);
         }
 
         #endregion
